@@ -1,0 +1,31 @@
+.btnSubmit{
+    display: block;
+    width: 13%;
+    border: none;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(94, 234, 94);
+    border-radius: 4px;
+    margin: auto;
+    align-self: flex-end;
+}
+.btnSubmit:hover{
+    cursor: pointer;
+    background-color: lightgreen;
+}
+.txtAnswer{
+    display: block;
+    border: none;
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    height: 55px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+.bottomItems{
+    display: flex;
+    flex-direction: column;
+    height: 210px;
+}
