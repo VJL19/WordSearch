@@ -1,11 +1,16 @@
-import React from 'react'
+import '../styles/EndOfGame.css'
 
 const EndOfGame = () => {
     return (
-    <div>
-      <h1>
-        End of Game Congratulations!!! 🥳🎉👏🤝👍🌷
-        </h1>
+    <div className="end-container">
+      <div>
+        <h1 className="title">
+          End Of Game Congratulations!!! 🥳🎉👏🎉👏🎊👏🎉🎊
+          </h1>
+          <h1 className="prize">
+          Prize? Kunin nyo kay Manuel Pabito
+          </h1>
+      </div>
     </div>
   )
 }

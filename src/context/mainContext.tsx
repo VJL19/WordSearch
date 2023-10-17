@@ -1,53 +1,75 @@
 import { createContext } from 'react'
 
-type TRevealAns = {
-  revealAns: string
-  toLowerCase: () => string
+// type TRevealAns = {
+//   revealAns: string
+//   toLowerCase: () => string
+// }
+
+export const enum REDUCER_ACTION_TYPE  {
+  SET_ANS,
+  SET_REVEALANS,
+  SET_ANSLIST,
+  CLEAR_ANS,
 }
-const initialState = {
+
+type ReducerAction = {
+  type: REDUCER_ACTION_TYPE,
+  payload: string
+}
+
+type WordSearchState = {
+  userAns: string,
+  revealAns: string[],
+  dispatch: () => void,
+  answerList: string[]
+}
+export const initialState = {
     userAns: '',
     revealAns: [],
     dispatch: () => {},
-    answerList: [],
+    answerList: ["Broadcast", "Data", "Network", "Switched", "Transfer", "Technique"]
 }
-type AnswerList = string[];
+// interface AnswerList {
+//   answerList: string,
+//   toLowerCase: () => string;
+// }
   
 interface IMainContext {
-    revealAns: TRevealAns[]
+    revealAns: string[]
     userAns: string
-    dispatch: (val: object) => void;
-    answerList: AnswerList[]
+    dispatch: React.Dispatch<ReducerAction>
+    answerList: string[]
 } 
 
-function reducer(state, action) {
+function reducer(state: WordSearchState , action: ReducerAction) {
   const {payload, type} = action;
   switch(type){
-    case "SET_ANS": {
+    case REDUCER_ACTION_TYPE.SET_ANS: {
       return {
         ...state,
         userAns: payload,
       }
     }
-    case "SET_REVEALANS": {
+    case REDUCER_ACTION_TYPE.SET_REVEALANS: {
       return {
         ...state,
         revealAns: [...state.revealAns, payload]
       }
     }
-    case "SET_ANSLIST": {
+    case REDUCER_ACTION_TYPE.SET_ANSLIST: {
       return {
         ...state,
-        answerList: state.answerList.filter((e) => e.toLowerCase() !== payload.toLowerCase())
+        answerList: state.answerList.filter((e: string) => e.toLowerCase() !== payload.toLowerCase())
       }
     }
-    case "CLEAR_ANS": {
+    case REDUCER_ACTION_TYPE.CLEAR_ANS: {
       return {
         ...state,
         userAns: ''
       }
     }
     default: {
-      throw new Error("INVALID TYPE");
+      throw new Error("INVALID TYPE!")
     }
   }
 }

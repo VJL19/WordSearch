@@ -1,0 +1,15 @@
+.end-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.title{
+    font-size: 3.3rem;
+    color: lightgreen;
+}
+.prize{
+    font-size: 4rem;
+    color: white;
+    font-weight: 600;
+}

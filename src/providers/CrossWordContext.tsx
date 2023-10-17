@@ -1,12 +1,9 @@
 import { MainContext, reducer } from "../context/mainContext";
 import { useReducer } from "react";
+import { initialState } from "../context/mainContext";
 const ContextProvider = ({ children }: React.PropsWithChildren) => {
 
-    const [state, dispatch] = useReducer(reducer, {
-      userAns: '',
-      revealAns: [],
-      answerList: ["Broadcast", "Data", "Network", "Switched", "Transfer", "Technique"]
-    })
+    const [state, dispatch] = useReducer(reducer, initialState)
     const {userAns, revealAns, answerList} = state;
     return (
       <MainContext.Provider value={{revealAns, userAns, dispatch, answerList}}>

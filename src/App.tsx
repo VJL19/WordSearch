@@ -1,23 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect } from "react";
 import "./App.css";
 import Crossword from "./components/Crossword";
 import EndOfGame from "./components/EndOfGame";
 import { useContext } from "react";
 import { MainContext } from "./context/mainContext";
 function App() {
-  const [highlightedText, setHighlightedText] = useState("");
-  const { answerList, revealAns } = useContext(MainContext);
-  const [message, setMessage] = useState("");
-  let timer;
+  const { answerList } = useContext(MainContext);
     
   
   useEffect(() => {
     
   }, [])
-  let text: string;
   // function getSelectionText() {
   //   if (window.getSelection) {
   //     text = window.getSelection()?.toString();
@@ -46,12 +40,11 @@ function App() {
   //         setMessage("Not found");
   //       }
   //     };
-  console.log(highlightedText);
 
   return (
     <React.Fragment>
         <div>
-          <h1>ICE BREAKER KAYO NG JOWA MO</h1>
+          <h1 style={{textAlign: 'center'}}>ICE BREAKER KAYO NG JOWA MO</h1>
           {/* <p id="sel">{highlightedText}</p> */}
           {/* <h1>{message}</h1> */}
           {answerList.length == 0 ? <EndOfGame/>: <Crossword/>}
