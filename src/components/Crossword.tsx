@@ -8,8 +8,9 @@ import { REDUCER_ACTION_TYPE } from "../context/mainContext";
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
 const Chessboard = () => {
+  
   const { userAns, revealAns, answerList, dispatch } = useContext(MainContext);
-  const [color, setColor] = useState<string>("white")
+  // const [color, setColor] = useState<string>("white")
   const [printCrossWord, setPrintCrossWord] = useState([
     ["R", "A", "E", "T", "R", "A", "N", "S", "F", "E", "R"],
     ["E", "S", "S", "U", "A", "B", "U", "E", "Y", "O", "L"],
